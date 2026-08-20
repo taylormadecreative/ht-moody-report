@@ -1,2 +1,29 @@
+# Link-preview crawlers may fetch, so a shared link renders its card.
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Slackbot-LinkExpanding
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+# Everything else, search crawlers included, stays out.
+# The page also carries <meta name="robots" content="noindex">.
 User-agent: *
 Disallow: /
