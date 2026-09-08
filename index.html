@@ -230,6 +230,27 @@ sup { -webkit-user-select: none; user-select: none; }
 .prose { max-width: 62ch; color: var(--ink-soft); }
 .prose strong { color: var(--ink); font-weight: 600; }
 
+/* Overview highlights - the same ruled, numbered grammar as the roadmap, on paper */
+.highlights {
+  list-style: none; margin: 1.5rem 0 2rem; padding: 0;
+  border-top: 1px solid var(--rule-strong);
+}
+.highlights li {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: clamp(0.9rem, 1.6vw, 1.4rem);
+  align-items: baseline;
+  padding: 0.78rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: var(--fs-body); line-height: 1.5;
+  color: var(--ink-soft);
+}
+.highlights__n {
+  font-family: var(--font-sans); font-variation-settings: 'wdth' 88;
+  font-size: var(--fs-micro); font-weight: 700; letter-spacing: 0.1em;
+  color: var(--ht-maroon); min-width: 2ch;
+}
+.highlights li strong { color: var(--ink); font-weight: 600; }
+
 .rule { height: 1px; background: var(--rule); border: 0; margin: 0; }
 
 .figure-note {
@@ -1176,7 +1197,7 @@ sup { -webkit-user-select: none; user-select: none; }
    ============================================================ */
 /* Scoped to .js so the page is fully readable with scripting unavailable. */
 .js [data-reveal] { opacity: 0; transform: translateY(18px) scale(0.985); }
-.js .roadmap li { opacity: 0; transform: translateY(10px); }
+.js .roadmap li, .js .highlights li { opacity: 0; transform: translateY(10px); }
 .js .stone { opacity: 0; transform: scale(0.88); }
 .js .tl-node__dot { transform: scale(0.6); opacity: 0; }
 .js .alloc { clip-path: inset(0 100% 0 0); }
@@ -1187,8 +1208,8 @@ sup { -webkit-user-select: none; user-select: none; }
    on narrow screens. */
 @media print {
   /* Nothing may depend on scroll position or script when this is printed. */
-  .js [data-reveal], .js .roadmap li, .js .stone, .js .tl-node__dot,
-  [data-reveal], .roadmap li, .stone, .tl-node__dot, .quote {
+  .js [data-reveal], .js .roadmap li, .js .highlights li, .js .stone, .js .tl-node__dot,
+  [data-reveal], .roadmap li, .highlights li, .stone, .tl-node__dot, .quote {
     opacity: 1 !important; transform: none !important; visibility: visible !important;
   }
   .js .alloc, .alloc { clip-path: none !important; }
@@ -1231,7 +1252,7 @@ sup { -webkit-user-select: none; user-select: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal], .roadmap li, .stone { opacity: 1 !important; transform: none !important; }
+  [data-reveal], .roadmap li, .highlights li, .stone { opacity: 1 !important; transform: none !important; }
   .tl-node__dot { opacity: 1 !important; transform: scale(1) !important; }
   .bar-fill { transform: scaleX(1) !important; }
   .alloc { clip-path: inset(0 0 0 0) !important; }
@@ -1302,7 +1323,20 @@ sup { -webkit-user-select: none; user-select: none; }
           <p class="reveal-copy" data-reveal>Through this historic commitment, the University has advanced initiatives that strengthen student success, expand scholarship opportunities, enhance campus planning, and position the institution for long-term sustainability and growth.</p>
 
           <div class="prose" data-reveal>
-            <p>This report covers the accomplishments achieved through the partnership between Huston-Tillotson University and The Moody Foundation during 2025&ndash;2026. Highlights include execution of the grant agreement, establishment of a <strong>$10 million UNCF scholarship endowment</strong>, engagement of CPM Texas as the University's owner's representative, appointment of key leadership to support implementation of the gift, completion of the University's branding and capital campaign framework with Deutser, the presentation of RamChella 2026, strategic planning for the <strong>&ldquo;For Such a Time as This&rdquo;</strong> capital campaign, receipt of the first grant installment, coordination of the gift receipt with JPMorgan Chase, development of the Ross Moody Finishing the Last Mile Scholarship Program, and the recognition of Ross and Elle Moody at the 2026 Commencement Ceremony.</p>
+            <p>This report covers the accomplishments achieved through the partnership between Huston-Tillotson University and The Moody Foundation during 2025&ndash;2026. Highlights include:</p>
+            <ul class="highlights" id="highlights">
+              <li><span class="highlights__n">01</span><span>Execution of the grant agreement</span></li>
+              <li><span class="highlights__n">02</span><span>Establishment of a <strong>$10 million UNCF scholarship endowment</strong></span></li>
+              <li><span class="highlights__n">03</span><span>Engagement of CPM Texas as the University's owner's representative</span></li>
+              <li><span class="highlights__n">04</span><span>Appointment of key leadership to support implementation of the gift</span></li>
+              <li><span class="highlights__n">05</span><span>Completion of the University's branding and capital campaign framework with Deutser</span></li>
+              <li><span class="highlights__n">06</span><span>The presentation of RamChella 2026</span></li>
+              <li><span class="highlights__n">07</span><span>Strategic planning for the <strong>&ldquo;For Such a Time as This&rdquo;</strong> capital campaign</span></li>
+              <li><span class="highlights__n">08</span><span>Receipt of the first grant installment</span></li>
+              <li><span class="highlights__n">09</span><span>Coordination of the gift receipt with JPMorgan Chase</span></li>
+              <li><span class="highlights__n">10</span><span>Development of the <strong>Moody Final Mile Scholarship</strong> Program</span></li>
+              <li><span class="highlights__n">11</span><span>Recognition of Ross and Elle Moody at the 2026 Commencement Ceremony</span></li>
+            </ul>
             <p>Collectively, these accomplishments demonstrate measurable progress toward transforming the student experience while laying the foundation for future campus expansion, philanthropic growth, and institutional excellence.</p>
           </div>
 
@@ -1326,7 +1360,7 @@ sup { -webkit-user-select: none; user-select: none; }
     <div class="shell">
       <div class="ledger__head" data-reveal>
         <h2 id="ledger-h">The year in recorded figures.</h2>
-        <p class="figure-note">Every figure in this section is stated in the 2025&ndash;2026 Report to The Moody Foundation. Figures elsewhere on this page that are arithmetic rather than stated are marked where they appear.</p>
+        <p class="figure-note">All figures here are pulled directly from the 2025&ndash;2026 Report to The Moody Foundation. Calculated figures elsewhere on the page are marked.</p>
       </div>
 
       <div class="ledger__grid">
@@ -1431,7 +1465,7 @@ sup { -webkit-user-select: none; user-select: none; }
           <p class="plate__intro" data-reveal>The report names two specific designations from the first installment. The balance funds the scholarship initiative.</p>
         </div>
 
-        <div class="alloc" data-chart="allocation" role="img" aria-label="Allocation of the $27,500,000 first installment: $2,500,000 to building calibration, pre-development and building assessments; $5,000,000 designated for deposit with the United Negro College Fund; and a balance of approximately $20,000,000 to the Ross Moody Finishing the Last Mile Scholarship initiative.">
+        <div class="alloc" data-chart="allocation" role="img" aria-label="Allocation of the $27,500,000 first installment: $2,500,000 to building calibration, pre-development and building assessments; $5,000,000 designated for deposit with the United Negro College Fund; and a balance of approximately $20,000,000 that funds the Moody Final Mile Scholarship.">
           <div class="alloc__seg" data-tone="ember" style="flex:2.5"><p class="alloc__amount">$2,500,000</p></div>
           <div class="alloc__seg" data-tone="honey" style="flex:5"><p class="alloc__amount">$5,000,000</p></div>
           <div class="alloc__seg" data-tone="gold" data-derived style="flex:20"><p class="alloc__amount">$20,000,000 <span class="derived">Derived balance</span></p></div>
@@ -1451,7 +1485,7 @@ sup { -webkit-user-select: none; user-select: none; }
           <div class="legend-item" data-reveal>
             <p class="legend-item__key"><span class="swatch" style="background: var(--ht-gold)"></span> Balance</p>
             <p class="legend-item__value">$20,000,000<sup style="color: var(--ht-gold); font-size: 0.42em; vertical-align: super">2</sup></p>
-            <p class="legend-item__note">Funds the Ross Moody Finishing the Last Mile Scholarship initiative.</p>
+            <p class="legend-item__note">Funds the Moody Final Mile Scholarship.</p>
           </div>
         </div>
       </article>
@@ -1592,8 +1626,8 @@ sup { -webkit-user-select: none; user-select: none; }
           <article class="tl-node">
             <p class="tl-node__date">July 2026</p>
             <div class="tl-node__spine"><span class="tl-node__dot"></span></div>
-            <h3 class="tl-node__title">Final Mile Scholarship shaped</h3>
-            <p class="tl-node__body">Faculty, staff, and students join focus groups and planning meetings to finalize the logistics and policy of the Ross Moody Finishing the Last Mile Scholarship.</p>
+            <h3 class="tl-node__title">Moody Final Mile Scholarship shaped</h3>
+            <p class="tl-node__body">Faculty, staff, and students join focus groups and planning meetings to finalize the logistics and policy of the Moody Final Mile Scholarship.</p>
           </article>
 
           <article class="tl-node">
@@ -1644,7 +1678,7 @@ sup { -webkit-user-select: none; user-select: none; }
           <div class="acc__body" id="acc-body-2" role="region" aria-labelledby="acc-btn-2" hidden>
             <ul>
               <li>A <b>$10,000,000 endowed scholarship fund</b> created with UNCF, expanding scholarship opportunity and reducing financial barriers for future students.</li>
-              <li>The <b>Ross Moody Finishing the Last Mile Scholarship</b> designed to support eligible undergraduate seniors in their final year, removing financial barriers that would otherwise delay graduation.</li>
+              <li>The <b>Moody Final Mile Scholarship</b>, designed to support eligible undergraduate seniors in their final year, removing financial barriers that would otherwise delay graduation.</li>
               <li>Faculty, staff, and students convened through focus groups in July 2026 to finalize program logistics and policy.</li>
               <li>RamChella enhanced student engagement across spiritual reflection, academic readiness, cultural programming, and entertainment.</li>
             </ul>
@@ -1656,7 +1690,9 @@ sup { -webkit-user-select: none; user-select: none; }
           <div class="acc__body" id="acc-body-3" role="region" aria-labelledby="acc-btn-3" hidden>
             <ul>
               <li>Comprehensive branding initiative and capital campaign brand development <b>completed with Deutser on May 27, 2026</b>.</li>
-              <li>Campaign theme established: <b>&ldquo;For Such a Time as This.&rdquo;</b></li>
+              <li>Refreshed the University's overall brand identity, evolving HT's visual and messaging foundation to reflect its <b>150-year legacy</b> and vision for the future.</li>
+              <li>Capital campaign theme established: <b>&ldquo;For Such a Time as This.&rdquo;</b></li>
+              <li>Introduced <b>&ldquo;We Are the Soul of Success,&rdquo;</b> the new university brand campaign uniting HT's story under a shared idea of purpose-driven achievement.</li>
               <li><b>Attorney Delphia York Ridley</b>, who has served as Associate Director of External Affairs at the Smithsonian National Museum of African American History &amp; Culture, invited to advise the campaign process.</li>
               <li>The <b>HOMECOMING</b> documentary was presented at the Martha's Vineyard African American Film Festival as the first launch of national storytelling in support of the campaign.</li>
             </ul>
@@ -1710,7 +1746,7 @@ sup { -webkit-user-select: none; user-select: none; }
         </figure>
         <figure class="quote">
           <blockquote>&hellip;helping students overcome financial barriers that might otherwise delay graduation.</blockquote>
-          <figcaption>On the Finishing the Last Mile Scholarship</figcaption>
+          <figcaption>On the Moody Final Mile Scholarship</figcaption>
         </figure>
         <figure class="quote">
           <blockquote>&hellip;a strong foundation for transformational growth that will benefit current and future generations of students.</blockquote>
@@ -1763,13 +1799,15 @@ sup { -webkit-user-select: none; user-select: none; }
         </div>
 
         <ol class="roadmap" id="roadmap">
-          <li><span class="roadmap__n">01</span><span class="roadmap__t">Announce the Ross Moody Finishing the Last Mile Scholarship Program in detail.<sup style="color: var(--fresh)">3</sup></span></li>
-          <li><span class="roadmap__n">02</span><span class="roadmap__t">Launch the capital campaign.</span></li>
-          <li><span class="roadmap__n">03</span><span class="roadmap__t">Take HOMECOMING to a national showing to gather capital campaign support.</span></li>
-          <li><span class="roadmap__n">04</span><span class="roadmap__t">Complete the contract with CPM Texas.</span></li>
-          <li><span class="roadmap__n">05</span><span class="roadmap__t">Begin applying for the appropriate approvals with the City of Austin for building projects.</span></li>
-          <li data-build="true"><span class="roadmap__n">06</span><span class="roadmap__t">Begin work on the first phase: HT Student Apartments.</span></li>
-          <li data-build="true"><span class="roadmap__n">07</span><span class="roadmap__t">Begin work on the first phase: Arena.</span></li>
+          <li><span class="roadmap__n">01</span><span class="roadmap__t">Launch the University's brand refresh.</span></li>
+          <li><span class="roadmap__n">02</span><span class="roadmap__t">Launch the new brand campaign, &ldquo;We Are the Soul of Success.&rdquo;</span></li>
+          <li><span class="roadmap__n">03</span><span class="roadmap__t">Announce the Moody Final Mile Scholarship in detail.<sup style="color: var(--fresh)">3</sup></span></li>
+          <li><span class="roadmap__n">04</span><span class="roadmap__t">Launch the capital campaign, &ldquo;For Such a Time as This.&rdquo;</span></li>
+          <li><span class="roadmap__n">05</span><span class="roadmap__t">Take HOMECOMING to a national showing to gather capital campaign support.</span></li>
+          <li><span class="roadmap__n">06</span><span class="roadmap__t">Complete the contract with CPM Texas.</span></li>
+          <li><span class="roadmap__n">07</span><span class="roadmap__t">Begin applying for the appropriate approvals with the City of Austin for building projects.</span></li>
+          <li data-build="true"><span class="roadmap__n">08</span><span class="roadmap__t">Begin work on the first phase: HT Student Apartments.</span></li>
+          <li data-build="true"><span class="roadmap__n">09</span><span class="roadmap__t">Begin work on the first phase: Arena.</span></li>
         </ol>
       </div>
 
@@ -2095,6 +2133,17 @@ sup { -webkit-user-select: none; user-select: none; }
     } else if (toggle) {
       toggle.hidden = true;
     }
+  }
+
+  /* ---------- Overview highlights stagger ---------- */
+  var highlightItems = document.querySelectorAll('.highlights li');
+  if (reduced || !hasGSAP) {
+    highlightItems.forEach(function (li) { li.style.opacity = '1'; li.style.transform = 'none'; });
+  } else if (highlightItems.length) {
+    gsap.to(highlightItems, {
+      opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', stagger: 0.045,
+      scrollTrigger: { trigger: '#highlights', start: 'top 85%', once: true }
+    });
   }
 
   /* ---------- Roadmap stagger ---------- */
