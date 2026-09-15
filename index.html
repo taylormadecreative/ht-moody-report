@@ -582,6 +582,7 @@ sup { -webkit-user-select: none; user-select: none; }
 
 /* Feature cell: the headline commitment, treated editorially not as a stat card */
 .cell--feature {
+  container-type: inline-size;
   grid-column: span 2; grid-row: span 2;
   /* Reserve room for the absolutely positioned mosaic strip along the foot. */
   padding-bottom: calc(clamp(1.3rem, 2vw, 2rem) + 40px);
@@ -593,7 +594,8 @@ sup { -webkit-user-select: none; user-select: none; }
 }
 .cell--feature .cell__figure {
   color: var(--ht-gold);
-  font-size: clamp(2.9rem, 6.4vw, 5.6rem);
+  /* Capped against the cell's own width so the figure can never clip, whatever the zoom or fallback font. */
+  font-size: min(clamp(2.9rem, 6.4vw, 5.6rem), 12.5cqi);
   letter-spacing: -0.038em;
 }
 .cell--feature .cell__label { color: var(--on-maroon); font-size: var(--fs-body); max-width: 24ch; }
@@ -1773,7 +1775,6 @@ sup { -webkit-user-select: none; user-select: none; }
               <li><b>Dr. Dandreon C. Gray</b>, Major Gifts Manager, funded with University operational dollars, manages the Moody gift and reports directly to President Wallace on all aspects of it.</li>
               <li><b>Canary Dennis</b>, Director of Sponsored Programs and Title III, provides grant administration, building project liaison, reporting, and compliance support.</li>
               <li>Receipt and endowed acceptance of the gift were coordinated with <b>JPMorgan Chase</b> and Moody Foundation representatives. The donation is accruing interest as intended, with a report from the JPMorgan Chase investment team among the referenced exhibits.</li>
-              <li>The owner's representative agreement with CPM Texas is in final review.</li>
             </ul>
           </div>
         </div>
@@ -1868,18 +1869,17 @@ sup { -webkit-user-select: none; user-select: none; }
         <ol class="roadmap" id="roadmap">
           <li><span class="roadmap__n">01</span><span class="roadmap__t">Launch the University's brand refresh.</span></li>
           <li><span class="roadmap__n">02</span><span class="roadmap__t">Launch the new brand campaign, &ldquo;We Are the Soul of Success.&rdquo;</span></li>
-          <li><span class="roadmap__n">03</span><span class="roadmap__t">Announce the Moody Final Mile Scholarship in detail.<sup style="color: var(--fresh)">3</sup></span></li>
+          <li><span class="roadmap__n">03</span><span class="roadmap__t">Announce the Moody Final Mile Scholarship in detail.<sup style="color: var(--fresh)">4</sup></span></li>
           <li><span class="roadmap__n">04</span><span class="roadmap__t">Launch the capital campaign, &ldquo;For Such a Time as This.&rdquo;</span></li>
           <li><span class="roadmap__n">05</span><span class="roadmap__t">Take HOMECOMING to a national showing to gather capital campaign support.</span></li>
-          <li><span class="roadmap__n">06</span><span class="roadmap__t">Complete the contract with CPM Texas.</span></li>
-          <li><span class="roadmap__n">07</span><span class="roadmap__t">Begin applying for the appropriate approvals with the City of Austin for building projects.</span></li>
-          <li data-build="true"><span class="roadmap__n">08</span><span class="roadmap__t">Begin work on the first phase: HT Student Apartments.</span></li>
-          <li data-build="true"><span class="roadmap__n">09</span><span class="roadmap__t">Begin work on the first phase: Arena.</span></li>
+          <li><span class="roadmap__n">06</span><span class="roadmap__t">Begin applying for the appropriate approvals with the City of Austin for building projects.</span></li>
+          <li data-build="true"><span class="roadmap__n">07</span><span class="roadmap__t">Begin work on the first phase: HT Student Apartments.</span></li>
+          <li data-build="true"><span class="roadmap__n">08</span><span class="roadmap__t">Begin work on the first phase: Arena.</span></li>
         </ol>
       </div>
 
       <p class="figure-note" style="color: var(--on-eco-soft); margin-top: 2.4rem">
-        <sup>3</sup> The report's forward timeline places this announcement inside the fall 2026 to summer 2027 window; its closing statement names Fall 2027.
+        <sup>4</sup> The report's forward timeline places this announcement inside the fall 2026 to summer 2027 window; its closing statement names Fall 2027.
       </p>
     </div>
   </section>
@@ -1908,9 +1908,8 @@ sup { -webkit-user-select: none; user-select: none; }
             <li><span>02</span><span>Brand Campaign Catalog</span></li>
             <li><span>03</span><span>RamFest Executive Summary</span></li>
             <li><span>04</span><span>Capital Campaign Overview</span></li>
-            <li><span>05</span><span>Finishing the Last Mile Program Overview</span></li>
+            <li><span>05</span><span>Final Mile Program Overview</span></li>
             <li><span>06</span><span>JPMorgan Chase investment team report</span></li>
-            <li><span>07</span><span>2026 Commencement materials <em style="font-style:normal;color:var(--on-terra-soft)">(pending)</em></span></li>
           </ul>
         </div>
         <div>
